@@ -1,15 +1,22 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps({
+  product: Object,
+});
+</script>
 
 <template>
   <div class="product d-flex flex-column">
-    <div class="product-image"></div>
+    <div
+      class="product-image"
+      :style="{ backgroundImage: `url(${product.image})` }"
+    ></div>
     <div class="p-10 d-flex flex-column">
-      <h4>Mac Book Pro</h4>
+      <h4>{{ product.title }}</h4>
       <p>
-        Lorem, ipsum dolor. Nisi, quibusdam cum? Commodi, harum voluptatibus?
+        {{ product.description }}
       </p>
       <div class="d-flex flex-row align-items-center">
-        <strong class="flex-fill">Prix: 1500€</strong>
+        <strong class="flex-fill">Prix: {{ product.price }}€</strong>
         <button class="btn btn-primary">Add to cart</button>
       </div>
     </div>

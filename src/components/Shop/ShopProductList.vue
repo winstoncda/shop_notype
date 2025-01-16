@@ -8,7 +8,11 @@ defineProps({
 
 <template>
   <div class="grid">
-    <ShopProduct />
+    <ShopProduct
+      v-for="(product, index) of productList"
+      :product="product"
+      :key="index"
+    />
   </div>
 </template>
 
