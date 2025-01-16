@@ -6,10 +6,16 @@ import ShopProductList from "./ShopProductList.vue";
 defineProps({
   productList: Array,
 });
+
+// récupération de la méthode
+const emit = defineEmits(["addProductToCart"]);
 </script>
 
 <template>
   <div class="p-20">
-    <ShopProductList :productList="productList" />
+    <ShopProductList
+      :productList="productList"
+      @add-product-to-cart="(productId) => emit('addProductToCart', productId)"
+    />
   </div>
 </template>

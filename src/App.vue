@@ -8,13 +8,22 @@ import data from "./data/products";
 
 // récupération des données depuis le fichier products dans data
 const products = reactive(data);
+
+// créer une fonction qui va ajouter des produits au panier
+function addProductToCart(productId) {
+  console.log(productId);
+}
 </script>
 
 <template>
   <div class="app-container">
     <TheHeader class="header" />
     <!-- passage du tableau de produit -->
-    <Shop :productList="products" class="shop" />
+    <Shop
+      :productList="products"
+      class="shop"
+      @add-product-to-cart="addProductToCart"
+    />
     <Cart class="cart" />
     <TheFooter class="footer" />
   </div>

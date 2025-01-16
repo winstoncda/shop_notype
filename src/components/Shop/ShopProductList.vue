@@ -4,6 +4,8 @@ import ShopProduct from "./ShopProduct.vue";
 defineProps({
   productList: Array,
 });
+
+const emit = defineEmits(["addProductToCart"]);
 </script>
 
 <template>
@@ -12,6 +14,7 @@ defineProps({
       v-for="(product, index) of productList"
       :product="product"
       :key="index"
+      @add-product-to-cart="(productId) => emit('addProductToCart', productId)"
     />
   </div>
 </template>
