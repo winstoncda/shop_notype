@@ -8,10 +8,13 @@ import data from "./data/products";
 
 // récupération des données depuis le fichier products dans data
 const products = reactive(data);
+const cart = reactive([]);
 
 // créer une fonction qui va ajouter des produits au panier
 function addProductToCart(productId) {
   console.log(productId);
+  const newProduct = products.find((product) => product.id === productId);
+  cart.push(newProduct);
 }
 </script>
 
@@ -24,7 +27,7 @@ function addProductToCart(productId) {
       class="shop"
       @add-product-to-cart="addProductToCart"
     />
-    <Cart class="cart" />
+    <Cart :cartList="cart" class="cart" />
     <TheFooter class="footer" />
   </div>
 </template>

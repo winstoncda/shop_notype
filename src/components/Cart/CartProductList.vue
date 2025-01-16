@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import CartProduct from "./CartProduct.vue";
+
+defineProps({
+  cartList: Array,
+});
 </script>
 
 <template>
   <div>
-    <CartProduct />
-    <CartProduct />
-    <CartProduct />
+    <CartProduct v-for="product of cartList" :product="product" />
   </div>
 </template>
 
