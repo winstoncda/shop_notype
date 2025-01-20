@@ -25,10 +25,22 @@ onMounted(() => {
 });
 
 // créer une fonction qui va ajouter des produits au panier
-function addProductToCart(productId) {
+async function addProductToCart(productId) {
   // console.log(productId);
-  const newProduct = products.find((product) => product.id === productId);
-  cart.push(newProduct);
+  try {
+    // récupération du produit à ajouter au panier
+    const newProduct = products.find((product) => product.id === productId);
+    await fetch("http://localhost:5000/addToCart", {
+      method: "POST",
+      body: JSON.stringify(newProduct),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    cart.push(newProduct);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 // supprimer un article du panier
