@@ -10,7 +10,7 @@ const emit = defineEmits(["removeProductFromCart"]);
     <strong class="flex-fill mr-10">{{ product.title }}</strong>
     <span class="mr-10">{{ product.price }} €</span>
     <button
-      @click="emit('removeProductFromCart', product.id)"
+      @click="emit('removeProductFromCart', product.idProduct)"
       class="btn btn-danger"
     >
       Delete

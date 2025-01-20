@@ -48,23 +48,26 @@ async function addProductToCart(productId) {
         "Content-Type": "application/json",
       },
     });
-    cart.push(newProduct);
+    await getCart();
   } catch (error) {
     console.log(error);
   }
 }
 
 // supprimer un article du panier
-function removeProductFromCart(productId) {
+async function removeProductFromCart(productId) {
   console.log(productId);
-  // Nous supprimons tous les articles du tableau
-  // 0 c'est le premier indice
-  // cart.length est le dernier indice
-  cart.splice(
-    0,
-    cart.length,
-    ...cart.filter((product) => product.id !== productId)
-  );
+  try {
+    const response = await fetch(
+      `http://localhost:5000/deleteArticle/${productId}`,
+      {
+        method: "DELETE",
+      }
+    );
+    await getCart();
+  } catch (error) {
+    console.log(error);
+  }
 }
 </script>
 
