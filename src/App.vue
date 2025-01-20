@@ -20,8 +20,19 @@ async function getProducts() {
   }
 }
 
+async function getCart() {
+  try {
+    const response = await fetch("http://localhost:5000/getCart");
+    let data = await response.json();
+    cart.splice(0, cart.length, ...data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 onMounted(() => {
   getProducts();
+  getCart();
 });
 
 // créer une fonction qui va ajouter des produits au panier
