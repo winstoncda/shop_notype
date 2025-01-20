@@ -1,14 +1,20 @@
-<script setup lang="ts">
+<script setup>
 defineProps({
   product: Object,
 });
+const emit = defineEmits(["removeProductFromCart"]);
 </script>
 
 <template>
   <div class="mb-10 p-10 d-flex flex-row align-items-center product">
     <strong class="flex-fill mr-10">{{ product.title }}</strong>
     <span class="mr-10">{{ product.price }} €</span>
-    <button class="btn btn-danger">Delete</button>
+    <button
+      @click="emit('removeProductFromCart', product.id)"
+      class="btn btn-danger"
+    >
+      Delete
+    </button>
   </div>
 </template>
 

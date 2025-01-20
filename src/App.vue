@@ -26,9 +26,14 @@ onMounted(() => {
 
 // créer une fonction qui va ajouter des produits au panier
 function addProductToCart(productId) {
-  console.log(productId);
+  // console.log(productId);
   const newProduct = products.find((product) => product.id === productId);
   cart.push(newProduct);
+}
+
+// supprimer un article du panier
+function removeProductFromCart(productId) {
+  console.log(productId);
 }
 </script>
 
@@ -41,7 +46,11 @@ function addProductToCart(productId) {
       class="shop"
       @add-product-to-cart="addProductToCart"
     />
-    <Cart :cartList="cart" class="cart" />
+    <Cart
+      @remove-product-from-cart="removeProductFromCart"
+      :cartList="cart"
+      class="cart"
+    />
     <TheFooter class="footer" />
   </div>
 </template>
