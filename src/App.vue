@@ -34,6 +34,14 @@ function addProductToCart(productId) {
 // supprimer un article du panier
 function removeProductFromCart(productId) {
   console.log(productId);
+  // Nous supprimons tous les articles du tableau
+  // 0 c'est le premier indice
+  // cart.length est le dernier indice
+  cart.splice(
+    0,
+    cart.length,
+    ...cart.filter((product) => product.id !== productId)
+  );
 }
 </script>
 
