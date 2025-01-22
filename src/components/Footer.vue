@@ -2,7 +2,7 @@
 
 <template>
   <footer class="d-flex flex-row justify-content-center align-items-center">
-    <p>Copyright © 2014-2025 CDA - DWWM</p>
+    <p>Copyright © 2025 CDA - DWWM</p>
   </footer>
 </template>
 

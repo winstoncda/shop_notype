@@ -2,16 +2,18 @@
 
 <template>
   <header class="d-flex flex-row align-items-center px-20">
-    <a href="#" class="d-flex flex-row align-items-center mr-20">
+    <router-link to="/" class="d-flex flex-row align-items-center mr-20">
       <img src="../assets/logo.svg" alt="logo" />
       <span class="logo">E & E</span>
-    </a>
+    </router-link>
     <ul class="d-flex flex-row flex-fill">
       <li class="mr-10"><a href="#">Boutique</a></li>
       <li><a href="#">Admin</a></li>
     </ul>
     <ul class="d-flex flex-row">
-      <li class="mr-10"><a href="#">Inscription</a></li>
+      <li class="mr-10">
+        <router-link to="/register">Inscription</router-link>
+      </li>
       <li><a href="#">Connexion</a></li>
     </ul>
   </header>
